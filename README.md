@@ -24,15 +24,11 @@ Dark Souls III **1.15.0**
 
 ### 安装
 
-用 `files\` 里那 78 个 `.partsbnd.dcx` 覆盖游戏 `Game\parts\` 下的同名文件。
-
-覆盖前先把每个要被替换的原文件复制一份放在旁边，文件名后面加 `.pre-hidequiver`，这份副本就是卸载时用的备份。装完重启游戏生效 —— `parts` 模型只在进程启动时读取。
+覆盖前先备份 `Game\parts\` 里将被替换的原文件，然后用 `files\` 里那 78 个 `.partsbnd.dcx` 覆盖同名文件。装完重启游戏生效 —— `parts` 模型只在进程启动时读取。
 
 ### 卸载
 
-把 `parts\` 里的 `.pre-hidequiver` 备份改回原名，覆盖掉被替换的文件，再删掉这些备份，`parts` 就回到安装前的样子。
-
-要是当初没留备份，用 UXM 重新解包 `parts`，或 Steam「验证文件完整性」（会连别的 mod 一起清掉）。
+把备份的原文件覆盖回去，`parts` 就回到安装前的样子。
 
 ### 版权
 
@@ -60,19 +56,12 @@ files). No DLL, no param archive edits, no Mod Engine needed.
 
 ### Install
 
-Overwrite the 78 `.partsbnd.dcx` files in the game's `Game\parts\` with the same filenames from `files\`.
-
-Before overwriting, copy each original that is about to be replaced next to itself with a `.pre-hidequiver`
-suffix — those copies are the uninstall backup. Restart the game afterwards, since `parts` models are only read
-at process start.
+Back up the originals in `Game\parts\` that are about to be replaced, then overwrite them with the 78
+`.partsbnd.dcx` files from `files\`. Restart the game afterwards — `parts` models are only read at process start.
 
 ### Uninstall
 
-Rename every `.pre-hidequiver` backup in `parts\` back to its original name, overwriting the replaced files, then
-delete the backups. `parts` is back to how it was before the install.
-
-No backup left? Re-unpack `parts` with UXM, or use Steam's "verify integrity" (which also wipes other mods'
-changes).
+Copy the backed-up originals back over the replaced files; `parts` ends up as it was before the install.
 
 ### Credits and copyright
 
