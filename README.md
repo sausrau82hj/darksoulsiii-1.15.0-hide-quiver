@@ -2,7 +2,9 @@
 
 Dark Souls III **1.15.0**
 
-**[中文](#中文) · [English](#english)**
+[English](#english) · **中文**
+
+---
 
 ## 中文
 
@@ -22,19 +24,44 @@ Dark Souls III **1.15.0**
 
 ### 安装
 
-1. 下载或 clone 本仓库，`files\` 文件夹里就是全部模型。
-2. 运行 `install.cmd`（默认目标 `D:\steam\steamapps\common\DARK SOULS III\Game`）；路径不同就传进去：`install.cmd "X:\...\DARK SOULS III\Game"`。
-3. 重启游戏 —— `parts` 模型只在进程启动时读取。
+备份原文件，再用 `files\` 里的同名文件覆盖 `Game\parts\`，重启游戏生效（`parts` 只在进程启动时读取）。
 
-原文件会备份成 `parts\<名字>.pre-hidequiver`。
+要备份的就是即将被覆盖的那 78 个同名文件，备份名加 `.pre-hidequiver` 后缀放在 `parts\` 里即可。手动或整段粘贴：
+
+```powershell
+$mod   = "D:\Mods\HideQuiver"                                                 # 本仓库解压位置
+$parts = "D:\steam\steamapps\common\DARK SOULS III\Game\parts"
+
+Get-ChildItem "$mod\files\*.partsbnd.dcx" | ForEach-Object {
+    $t = Join-Path $parts $_.Name
+    if ((Test-Path -LiteralPath $t) -and -not (Test-Path -LiteralPath "$t.pre-hidequiver")) {
+        Copy-Item -LiteralPath $t -Destination "$t.pre-hidequiver"
+    }
+    Copy-Item -LiteralPath $_.FullName -Destination $t -Force
+}
+```
+
+已有 `.pre-hidequiver` 的不会再被覆盖，所以重复跑不会把改过的模型当成原版存起来。
 
 ### 卸载
 
-运行 `restore.cmd`：有备份的还原并删掉备份，纯粹新增的文件直接删除，`parts` 回到安装前的样子。
+把 `parts\*.pre-hidequiver` 覆盖回同名文件，再删掉这些备份：
+
+```powershell
+$parts = "D:\steam\steamapps\common\DARK SOULS III\Game\parts"
+Get-ChildItem "$parts\*.pre-hidequiver" | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination ($_.FullName -replace '\.pre-hidequiver$','') -Force
+    Remove-Item -LiteralPath $_.FullName
+}
+```
+
+没备份就用 UXM 重新解包 `parts`，或 Steam「验证文件完整性」（会连别的 mod 一起清掉）。
 
 ### 版权
 
-`files` 里的 `.dcx` 是修改过的 FromSoftware 游戏资源（© FromSoftware / Bandai Namco），仅供单机 mod 修改使用，不可商用。脚本：MIT。
+`files` 里的 `.dcx` 是修改过的 FromSoftware 游戏资源（© FromSoftware / Bandai Namco），仅供单机 mod 修改使用，不可商用。
+
+---
 
 ## English
 
@@ -56,18 +83,42 @@ files). No DLL, no param archive edits, no Mod Engine needed.
 
 ### Install
 
-1. Download or clone this repository — the `files\` folder holds every model.
-2. Run `install.cmd` (defaults to `D:\steam\steamapps\common\DARK SOULS III\Game`); different path: `install.cmd "X:\...\DARK SOULS III\Game"`.
-3. Restart the game — `parts` models are only read at process start.
+Back up the originals, then overwrite `Game\parts\` with the same filenames from `files\`. Restart the game
+afterwards — `parts` models are only read at process start.
 
-Originals are backed up as `parts\<name>.pre-hidequiver`.
+The files to back up are exactly the 78 matching names in `parts\`; keep each copy next to it with a
+`.pre-hidequiver` suffix. By hand, or paste this whole block:
+
+```powershell
+$mod   = "D:\Mods\HideQuiver"                                                 # where you unpacked it
+$parts = "D:\steam\steamapps\common\DARK SOULS III\Game\parts"
+
+Get-ChildItem "$mod\files\*.partsbnd.dcx" | ForEach-Object {
+    $t = Join-Path $parts $_.Name
+    if ((Test-Path -LiteralPath $t) -and -not (Test-Path -LiteralPath "$t.pre-hidequiver")) {
+        Copy-Item -LiteralPath $t -Destination "$t.pre-hidequiver"
+    }
+    Copy-Item -LiteralPath $_.FullName -Destination $t -Force
+}
+```
+
+An existing `.pre-hidequiver` is never overwritten, so rerunning this never stores a patched model as the original.
 
 ### Uninstall
 
-Run `restore.cmd`. Files with a backup are restored and the backup deleted, files that were pure additions are
-removed, so `parts` ends up exactly as it was before install.
+Copy every `parts\*.pre-hidequiver` back over its original name, then delete the backups:
+
+```powershell
+$parts = "D:\steam\steamapps\common\DARK SOULS III\Game\parts"
+Get-ChildItem "$parts\*.pre-hidequiver" | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination ($_.FullName -replace '\.pre-hidequiver$','') -Force
+    Remove-Item -LiteralPath $_.FullName
+}
+```
+
+No backup? Re-unpack `parts` with UXM, or use Steam's "verify integrity" (which also wipes other mods' changes).
 
 ### Credits and copyright
 
 The `.dcx` files in `files` are modified FromSoftware game assets (© FromSoftware / Bandai Namco). They are
-for single-player modding and tinkering, not for commercial use. Scripts: MIT.
+for single-player modding and tinkering, not for commercial use.
