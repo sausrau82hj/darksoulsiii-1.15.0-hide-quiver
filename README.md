@@ -1,6 +1,6 @@
 # DS3 Hide Quiver
 
-Dark Souls III **1.15.0**
+Dark Souls III
 
 Only verified for version 1.15.0, but it will likely work for other versions as well.
 
