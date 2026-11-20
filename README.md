@@ -20,28 +20,38 @@ No DLL, no param edits.
 
 The `parts` folder in this repository is the whole mod: 78 files, flat, no subfolders. Use either method.
 
-### Option A — Mod Engine 2 (game stays packed)
+### Option A — Mod Engine (game stays packed)
 
-1. Download [Mod Engine 2](https://github.com/soulsmods/ModEngine2/releases) (`ModEngine-2.1.0.0-win64.zip`) and extract it anywhere.
-2. Copy the `parts` folder into Mod Engine's `mod` folder, so you end up with `mod\parts\wp_a_6399.partsbnd.dcx` and the rest.
-3. Start the game with `launchmod_darksouls3.bat`. Starting it from Steam bypasses the loader and the mod will not appear.
+1. Download [Mod Engine](https://www.nexusmods.com/darksouls3/mods/332) and put `dinput8.dll` and `modengine.ini`
+   in `DARK SOULS III\Game\`.
+2. In `modengine.ini`, under `[files]`, point the override directory at a folder of your choosing:
 
-Mod Engine 2 is discontinued upstream; its successor [me3](https://github.com/garyttierney/me3) takes the same
-`parts` folder. Nothing on disk gets overwritten this way — delete `mod\parts` to uninstall.
+   ```ini
+   useModOverrideDirectory=1
+   modOverrideDirectory="\HideQuiver"
+   ```
 
-### Option B — UXM unpacked (no launcher)
+3. Copy this repository's `parts` folder into `Game\HideQuiver\`, so you end up with
+   `Game\HideQuiver\parts\wp_a_6399.partsbnd.dcx` and the rest.
+4. Start the game from Steam as usual — `dinput8.dll` loads the override. Restart if the game was running.
 
-1. Download [UXM](https://github.com/JKAnderson/UXM/releases), point it at `DARK SOULS III\Game\DarkSoulsIII.exe` and unpack.
-   That patches the executable and leaves `Game\parts` as loose files.
+On game versions newer than 1.15.0, use the [patched Mod Engine build](https://www.nexusmods.com/darksouls3/mods/2410).
+
+### Option B — UXM (unpacked and patched)
+
+1. Download [UXM](https://github.com/JKAnderson/UXM/releases), point it at `Game\DarkSoulsIII.exe` and run **Unpack**.
+   Then run **Patch** as well — unpacking alone leaves the game reading its archives, and the loose files only take
+   effect once the executable is patched to load them.
 2. Copy the 78 files from `parts\` into `Game\parts\`, keeping copies of the originals you replace.
-3. Start the game normally from Steam. `parts` models are only read at process start, so restart if it was running.
+3. Start the game from Steam. `parts` models are only read at process start, so restart if it was running.
 
 ## Uninstall
 
-- Option A: delete `mod\parts`.
+- Option A: delete `Game\HideQuiver`, or set `useModOverrideDirectory=0` in `modengine.ini`.
 - Option B: copy your backed-up originals back into `Game\parts\`.
 
 ## License
 
-Scripts and text: MIT (see `LICENSE`). The `.dcx` files are modified FromSoftware game assets — see
-[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
+Scripts and text: MIT (see `LICENSE`). The `.dcx` files are modified FromSoftware game assets
+(© FromSoftware / Bandai Namco), for single-player modding only, not for commercial use.
+See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for the tools referenced above.
