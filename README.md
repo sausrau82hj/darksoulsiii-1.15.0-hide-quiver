@@ -24,15 +24,15 @@ The `parts` folder in this repository is the whole mod: 78 files, flat, no subfo
 
 1. Download [Mod Engine](https://www.nexusmods.com/darksouls3/mods/332) and put `dinput8.dll` and `modengine.ini`
    in `DARK SOULS III\Game\`.
-2. In `modengine.ini`, under `[files]`, point the override directory at a folder of your choosing:
+2. In `modengine.ini`, under `[files]`, enable the override directory:
 
    ```ini
    useModOverrideDirectory=1
-   modOverrideDirectory="\HideQuiver"
+   modOverrideDirectory="\mod"
    ```
 
-3. Copy this repository's `parts` folder into `Game\HideQuiver\`, so you end up with
-   `Game\HideQuiver\parts\wp_a_6399.partsbnd.dcx` and the rest.
+3. Copy this repository's `parts` folder into `Game\mod\`, so you end up with
+   `Game\mod\parts\wp_a_6399.partsbnd.dcx` and the rest.
 4. Start the game from Steam as usual — `dinput8.dll` loads the override. Restart if the game was running.
 
 On game versions newer than 1.15.0, use the [patched Mod Engine build](https://www.nexusmods.com/darksouls3/mods/2410).
@@ -47,7 +47,7 @@ On game versions newer than 1.15.0, use the [patched Mod Engine build](https://w
 
 ## Uninstall
 
-- Option A: delete `Game\HideQuiver`, or set `useModOverrideDirectory=0` in `modengine.ini`.
+- Option A: delete `Game\mod\parts`, or set `useModOverrideDirectory=0` in `modengine.ini`.
 - Option B: copy your backed-up originals back into `Game\parts\`.
 
 ## License
