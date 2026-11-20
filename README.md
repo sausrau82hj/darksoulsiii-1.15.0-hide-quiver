@@ -3,6 +3,7 @@
 Dark Souls III **1.15.0**
 
 Verified on 1.15.0 only, but other versions should be fine.
+
 Equipping a bow or crossbow no longer puts a quiver, bolt case, or the arrows inside them on your character.
 Bows, crossbows, damage, stamina cost, weight and saves are untouched.
 
