@@ -2,17 +2,13 @@
 
 Dark Souls III **1.15.0**
 
-Verified on 1.15.0 only, but other versions should be fine.
-
 Equipping a bow or crossbow no longer puts a quiver, bolt case, or the arrows inside them on your character.
-Bows, crossbows, damage, stamina cost, weight and saves are untouched.
+Bow and crossbow stats, damage, stamina cost, weight and saves are untouched.
 
-This is a set of replacement `parts` model files, so the game has to be UXM-unpacked (`Game\parts` as loose
-files). No DLL, no param archive edits, no Mod Engine needed.
+This is a set of 39 replacement `parts` models — 78 `.partsbnd.dcx` files, each model plus its `_l` LOD twin.
+No DLL, no param edits.
 
 ## Models replaced
-
-39 models, 78 files in total, each model with its `_l` LOD twin:
 
 - Arrow quiver: `wp_a_6399`
 - Bolt case: `wp_a_6700` (male), `wp_a_9700` (female)
@@ -22,14 +18,30 @@ files). No DLL, no param archive edits, no Mod Engine needed.
 
 ## Install
 
-Back up the originals in `Game\parts\` that are about to be replaced, then overwrite them with the 78
-`.partsbnd.dcx` files from `files\`. Restart the game afterwards — `parts` models are only read at process start.
+The `parts` folder in this repository is the whole mod: 78 files, flat, no subfolders. Use either method.
+
+### Option A — Mod Engine 2 (game stays packed)
+
+1. Download [Mod Engine 2](https://github.com/soulsmods/ModEngine2/releases) (`ModEngine-2.1.0.0-win64.zip`) and extract it anywhere.
+2. Copy the `parts` folder into Mod Engine's `mod` folder, so you end up with `mod\parts\wp_a_6399.partsbnd.dcx` and the rest.
+3. Start the game with `launchmod_darksouls3.bat`. Starting it from Steam bypasses the loader and the mod will not appear.
+
+Mod Engine 2 is discontinued upstream; its successor [me3](https://github.com/garyttierney/me3) takes the same
+`parts` folder. Nothing on disk gets overwritten this way — delete `mod\parts` to uninstall.
+
+### Option B — UXM unpacked (no launcher)
+
+1. Download [UXM](https://github.com/JKAnderson/UXM/releases), point it at `DARK SOULS III\Game\DarkSoulsIII.exe` and unpack.
+   That patches the executable and leaves `Game\parts` as loose files.
+2. Copy the 78 files from `parts\` into `Game\parts\`, keeping copies of the originals you replace.
+3. Start the game normally from Steam. `parts` models are only read at process start, so restart if it was running.
 
 ## Uninstall
 
-Copy the backed-up originals back over the replaced files; `parts` ends up as it was before the install.
+- Option A: delete `mod\parts`.
+- Option B: copy your backed-up originals back into `Game\parts\`.
 
-## Credits and copyright
+## License
 
-The `.dcx` files in `files` are modified FromSoftware game assets (© FromSoftware / Bandai Namco). They are
-for single-player modding and tinkering, not for commercial use.
+Scripts and text: MIT (see `LICENSE`). The `.dcx` files are modified FromSoftware game assets — see
+[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).

@@ -1,0 +1,44 @@
+THIRD-PARTY NOTICES
+===================
+
+This repository redistributes modified game assets and does not include third-party
+source code. The tools listed below are not bundled; they are linked for installation
+only, and each is used under its own license.
+
+--------------------------------------------------------------------------------
+1. Dark Souls III game assets
+--------------------------------------------------------------------------------
+Files in parts\ (*.partsbnd.dcx) are modified FromSoftware game resources extracted
+from DARK SOULS III, version 1.15.0.
+
+    Dark Souls III (c) FromSoftware, Inc. / Bandai Namco Entertainment Inc.
+    https://www.darksouls3.com/
+
+They are provided for single-player modding only, free of charge, and may not be
+used commercially or redistributed as if they were original work.
+
+--------------------------------------------------------------------------------
+2. Mod Engine 2
+--------------------------------------------------------------------------------
+    Project: soulsmods/ModEngine2
+    Source:  https://github.com/soulsmods/ModEngine2
+    License: MIT
+    Copyright (c) Mod Engine 2 contributors
+
+Optional loader for Option A in the README. Not included in this repository.
+Mod Engine 2 is no longer developed upstream; its successor is me3
+(https://github.com/garyttierney/me3), also not included here.
+
+--------------------------------------------------------------------------------
+3. UXM Selective Unpacker
+--------------------------------------------------------------------------------
+    Project: JKAnderson/UXM
+    Source:  https://github.com/JKAnderson/UXM
+    License: GNU General Public License v3.0
+
+Optional unpacking tool for Option B in the README. Not included in this
+repository and not linked against by anything here.
+
+--------------------------------------------------------------------------------
+This notice covers the files distributed in this repository and in its release
+archives. If you reuse the assets, keep this notice with them.
