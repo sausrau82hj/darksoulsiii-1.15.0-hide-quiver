@@ -18,7 +18,7 @@ No DLL, no param edits.
 
 ## Install
 
-The `parts` folder in this repository is the whole mod — 78 files, flat, no subfolders. Copy it where your loader reads loose files: point any [Mod Engine](https://www.nexusmods.com/darksouls3/mods/2410) version (1, 2 or me3) at it, or copy the files into `Game\parts\` on a game unpacked with UXM / Nuxe, keeping a copy of the originals. Models are read at startup, so restart the game if it was running.
+The `parts` folder in this repository is the whole mod — 78 files, flat, no subfolders. Copy it where your loader reads loose files: point one of [me](https://www.nexusmods.com/darksouls3/mods/2410), [me2](https://github.com/soulsmods/ModEngine2), or [me3](https://github.com/garyttierney/me3).or copy the files into `Game\parts\` on a game unpacked with UXM / Nuxe, keeping a copy of the originals. Models are read at startup, so restart the game if it was running.
 
 ## License
 
