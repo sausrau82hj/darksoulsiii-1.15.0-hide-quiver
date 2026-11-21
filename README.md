@@ -24,4 +24,3 @@ The `parts` folder in this repository is the whole mod — 78 files, flat, no su
 
 Scripts and text: MIT — see [LICENSE](https://github.com/sausrau82hj/darksoulsiii-hide-quiver/blob/main/LICENSE). The `.dcx` files are modified FromSoftware game assets
 (© FromSoftware / Bandai Namco), for single-player modding only, not for commercial use.
-See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for the tools referenced above.
