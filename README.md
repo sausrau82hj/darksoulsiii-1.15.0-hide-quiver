@@ -1,4 +1,4 @@
-# DS3 Hide Quiver
+# *DS3 Hide Quiver*
 
 Dark Souls III
 
